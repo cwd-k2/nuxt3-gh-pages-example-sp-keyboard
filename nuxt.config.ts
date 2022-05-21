@@ -4,10 +4,8 @@ const deployTarget = process.env.NODE_ENV || "development";
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   target: "static",
-  router: {
-    base: deployTarget === "gh-pages" ? "/nuxt3-gh-pages-example-sp-keyboard/" : "/",
-  },
   app: {
+    baseURL: deployTarget === "gh-pages" ? "/nuxt3-gh-pages-example-sp-keyboard/" : "/",
     head: {
       link: [
         {
