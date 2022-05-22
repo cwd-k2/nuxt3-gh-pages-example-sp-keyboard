@@ -49,19 +49,23 @@ const display = computed<string>(() => {
       return props.chars[0];
   }
 });
+
+const translate = computed<Object>(() => {
+  const f = flickDirection.value;
+  const x = f === "left" ? -2 : f === "right" ? 2 : 0;
+  const y = f === "up" ? -2 : f === "down" ? 2 : 0;
+  return {
+    transform: `translate(${x}px, ${y}px)`,
+  };
+});
 </script>
 
 <template>
   <div>
     <p
       class="sp-key"
-      :class="{
-        active,
-        'to-left': flickDirection === 'left',
-        'to-up': flickDirection === 'up',
-        'to-right': flickDirection === 'right',
-        'to-down': flickDirection === 'down',
-      }"
+      :class="{ active }"
+      :style="translate"
       @touchstart="
         e => {
           active = true;
@@ -79,7 +83,6 @@ const display = computed<string>(() => {
       @touchend="
         () => {
           $emit('input', display);
-
           x0 = x1 = 0;
           y0 = y1 = 0;
           active = false;
@@ -93,28 +96,16 @@ const display = computed<string>(() => {
 
 <style scoped>
 .sp-key {
-  margin: 5px;
+  margin: 2px;
   width: auto;
   height: 60px;
   background-color: cornflowerblue;
   color: white;
-  border-radius: 5%;
+  border-radius: 4px;
   text-align: center;
   line-height: 60px;
 }
 .active {
   background-color: blue;
-}
-.to-left {
-  transform: translate(-2px, 0);
-}
-.to-up {
-  transform: translate(0, -2px);
-}
-.to-right {
-  transform: translate(2px, 0);
-}
-.to-down {
-  transform: translate(0, 2px);
 }
 </style>

@@ -70,7 +70,7 @@ function onInput(c: string) {
       </div>
     </div>
     <!---->
-    <div style="height: 320px">
+    <div>
       <div class="uk-margin uk-child-width-1-3 uk-grid-collapse" uk-grid>
         <!-- col1 -->
         <div class="uk-child-width-1-1 uk-grid-collapse" uk-grid>

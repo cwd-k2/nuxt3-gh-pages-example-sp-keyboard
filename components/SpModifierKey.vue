@@ -110,12 +110,12 @@ const convert = {
 
 <style scoped>
 .sp-modifier-key {
-  margin: 5px;
+  margin: 2px;
   width: auto;
   height: 60px;
   background-color: mediumslateblue;
   color: white;
-  border-radius: 5%;
+  border-radius: 4px;
   text-align: center;
   line-height: 60px;
 }
