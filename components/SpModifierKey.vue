@@ -82,8 +82,8 @@ const convert = {
 <template>
   <div>
     <p
-      class="sp-modifier-key"
-      :class="{ active }"
+      class="sp-key sp-modifier-key"
+      :class="{ 'sp-key-active': active, 'sp-modifier-key-active': active }"
       @touchstart="
         e => {
           active = true;
@@ -107,19 +107,3 @@ const convert = {
     </p>
   </div>
 </template>
-
-<style scoped>
-.sp-modifier-key {
-  margin: 2px;
-  width: auto;
-  height: 60px;
-  background-color: mediumslateblue;
-  color: white;
-  border-radius: 4px;
-  text-align: center;
-  line-height: 60px;
-}
-.active {
-  background-color: indigo;
-}
-</style>

@@ -105,3 +105,25 @@ function onInput(c: string) {
     </div>
   </div>
 </template>
+
+<style>
+.sp-key {
+  margin: 2px;
+  width: auto;
+  height: 60px;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 60px;
+  background-color: cornflowerblue;
+  color: white;
+}
+.sp-key-active {
+  background-color: blue;
+}
+.sp-modifier-key {
+  background-color: mediumslateblue;
+}
+.sp-modifier-key-active {
+  background-color: indigo;
+}
+</style>

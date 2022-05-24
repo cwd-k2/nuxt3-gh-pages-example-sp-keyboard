@@ -64,7 +64,7 @@ const translate = computed<Object>(() => {
   <div>
     <p
       class="sp-key"
-      :class="{ active }"
+      :class="{ 'sp-key-active': active }"
       :style="translate"
       @touchstart="
         e => {
@@ -93,19 +93,3 @@ const translate = computed<Object>(() => {
     </p>
   </div>
 </template>
-
-<style scoped>
-.sp-key {
-  margin: 2px;
-  width: auto;
-  height: 60px;
-  background-color: cornflowerblue;
-  color: white;
-  border-radius: 4px;
-  text-align: center;
-  line-height: 60px;
-}
-.active {
-  background-color: blue;
-}
-</style>
