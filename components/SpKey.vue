@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, StyleValue } from "vue";
 
 type Direction = "up" | "down" | "left" | "right" | "none";
 
@@ -50,7 +50,7 @@ const display = computed<string>(() => {
   }
 });
 
-const translate = computed<Object>(() => {
+const translate = computed<StyleValue>(() => {
   const f = flickDirection.value;
   const x = f === "left" ? -2 : f === "right" ? 2 : 0;
   const y = f === "up" ? -2 : f === "down" ? 2 : 0;

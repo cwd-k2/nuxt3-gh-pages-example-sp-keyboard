@@ -8,75 +8,74 @@ defineEmits<{
 
 const active = ref<boolean>(false);
 
-const convert = {
-  あ: "ぁ",
-  ぁ: "あ",
-  い: "ぃ",
-  ぃ: "ゐ",
-  ゐ: "い",
-  う: "ゔ",
-  ゔ: "ぅ",
-  ぅ: "う",
-  え: "ぇ",
-  ぇ: "ゑ",
-  ゑ: "え",
-  お: "ぉ",
-  ぉ: "お",
-  か: "が",
-  が: "か",
-  き: "ぎ",
-  ぎ: "き",
-  く: "ぐ",
-  ぐ: "く",
-  け: "げ",
-  げ: "け",
-  こ: "ご",
-  ご: "こ",
-  さ: "ざ",
-  ざ: "さ",
-  し: "じ",
-  じ: "し",
-  す: "ず",
-  ず: "す",
-  せ: "ぜ",
-  ぜ: "せ",
-  そ: "ぞ",
-  ぞ: "そ",
-  た: "だ",
-  だ: "た",
-  ち: "ぢ",
-  ぢ: "ち",
-  つ: "っ",
-  っ: "づ",
-  づ: "つ",
-  て: "で",
-  で: "て",
-  と: "ど",
-  ど: "と",
-  は: "ば",
-  ば: "ぱ",
-  ぱ: "は",
-  ひ: "び",
-  び: "ぴ",
-  ぴ: "ひ",
-  ふ: "ぶ",
-  ぶ: "ぷ",
-  ぷ: "ふ",
-  へ: "べ",
-  べ: "ぺ",
-  ぺ: "へ",
-  ほ: "ぼ",
-  ぼ: "ぽ",
-  ぽ: "ほ",
-  や: "ゃ",
-  ゃ: "や",
-  ゆ: "ゅ",
-  ゅ: "ゆ",
-  よ: "ょ",
-  ょ: "よ",
-  わ: "ゎ",
-  ゎ: "わ",
-};
+const convert = new Map();
+convert.set("あ", "ぁ");
+convert.set("ぁ", "あ");
+convert.set("い", "ぃ");
+convert.set("ぃ", "ゐ");
+convert.set("ゐ", "い");
+convert.set("う", "ゔ");
+convert.set("ゔ", "ぅ");
+convert.set("ぅ", "う");
+convert.set("え", "ぇ");
+convert.set("ぇ", "ゑ");
+convert.set("ゑ", "え");
+convert.set("お", "ぉ");
+convert.set("ぉ", "お");
+convert.set("か", "が");
+convert.set("が", "か");
+convert.set("き", "ぎ");
+convert.set("ぎ", "き");
+convert.set("く", "ぐ");
+convert.set("ぐ", "く");
+convert.set("け", "げ");
+convert.set("げ", "け");
+convert.set("こ", "ご");
+convert.set("ご", "こ");
+convert.set("さ", "ざ");
+convert.set("ざ", "さ");
+convert.set("し", "じ");
+convert.set("じ", "し");
+convert.set("す", "ず");
+convert.set("ず", "す");
+convert.set("せ", "ぜ");
+convert.set("ぜ", "せ");
+convert.set("そ", "ぞ");
+convert.set("ぞ", "そ");
+convert.set("た", "だ");
+convert.set("だ", "た");
+convert.set("ち", "ぢ");
+convert.set("ぢ", "ち");
+convert.set("つ", "っ");
+convert.set("っ", "づ");
+convert.set("づ", "つ");
+convert.set("て", "で");
+convert.set("で", "て");
+convert.set("と", "ど");
+convert.set("ど", "と");
+convert.set("は", "ば");
+convert.set("ば", "ぱ");
+convert.set("ぱ", "は");
+convert.set("ひ", "び");
+convert.set("び", "ぴ");
+convert.set("ぴ", "ひ");
+convert.set("ふ", "ぶ");
+convert.set("ぶ", "ぷ");
+convert.set("ぷ", "ふ");
+convert.set("へ", "べ");
+convert.set("べ", "ぺ");
+convert.set("ぺ", "へ");
+convert.set("ほ", "ぼ");
+convert.set("ぼ", "ぽ");
+convert.set("ぽ", "ほ");
+convert.set("や", "ゃ");
+convert.set("ゃ", "や");
+convert.set("ゆ", "ゅ");
+convert.set("ゅ", "ゆ");
+convert.set("よ", "ょ");
+convert.set("ょ", "よ");
+convert.set("わ", "ゎ");
+convert.set("ゎ", "わ");
 </script>
 
 <template>
@@ -97,13 +96,13 @@ const convert = {
       @touchend="
         () => {
           active = false;
-          if (convert[props.target]) {
-            $emit('input', convert[props.target]);
+          if (convert.get(props.target)) {
+            $emit('input', convert.get(props.target));
           }
         }
       "
     >
-      <b>{{ convert[props.target] || "" }}</b>
+      <b>{{ convert.get(props.target) || "" }}</b>
     </p>
   </div>
 </template>
