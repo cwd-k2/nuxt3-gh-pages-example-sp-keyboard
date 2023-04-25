@@ -1,8 +1,7 @@
-import { defineNuxtConfig } from "nuxt";
 const deployTarget = process.env.NODE_ENV || "development";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
-export default defineNuxtConfig({
+export default {
   target: "static",
   app: {
     baseURL: deployTarget === "gh-pages" ? "/nuxt3-gh-pages-example-sp-keyboard/" : "/",
@@ -19,4 +18,4 @@ export default defineNuxtConfig({
       ],
     },
   },
-});
+};
