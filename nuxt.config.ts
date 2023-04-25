@@ -4,7 +4,7 @@ const deployTarget = process.env.NODE_ENV || "development";
 export default {
   target: "static",
   app: {
-    baseURL: deployTarget === "gh-pages" ? "/nuxt3-gh-pages-example-sp-keyboard/" : "/",
+    baseURL: deployTarget === "production" ? "/nuxt3-gh-pages-example-sp-keyboard/" : "/",
     head: {
       link: [
         {
