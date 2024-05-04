@@ -42,10 +42,6 @@ function onCandidate(c: string) {
 
 <template>
   <div>
-    <div v-if="candidate" class="candidate">
-      {{ candidate }}
-    </div>
-
     <div class="uk-margin uk-text-center uk-child-width-1-2" uk-grid>
       <div>
         <button
@@ -113,6 +109,10 @@ function onCandidate(c: string) {
         </div>
       </div>
     </div>
+
+    <div v-if="candidate" class="candidate">
+      {{ candidate }}
+    </div>
   </div>
 </template>
 
@@ -140,6 +140,7 @@ function onCandidate(c: string) {
   position: fixed;
   background-color: blue;
   text-align: center;
+  margin: none;
   line-height: 50px;
   color: white;
   height: 50px;
