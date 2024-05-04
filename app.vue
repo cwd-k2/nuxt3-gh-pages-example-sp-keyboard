@@ -27,10 +27,10 @@ const editing = ref<string>("");
       "
     >
       <sp-keyboard
-        @confirm="c => (confirmed += c)"
-        @buf-change="c => (editing = c)"
-        @backspace="c => (confirmed = confirmed.slice(0, -1))"
-        @clear="c => (confirmed = '')"
+        @confirm="(c: string) => (confirmed += c)"
+        @buf-change="(c: string) => (editing = c)"
+        @backspace="(c: string) => (confirmed = confirmed.slice(0, -1))"
+        @clear="(c: string) => (confirmed = '')"
       />
     </div>
   </div>

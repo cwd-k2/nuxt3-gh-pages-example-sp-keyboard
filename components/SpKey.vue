@@ -6,6 +6,7 @@ type Direction = "up" | "down" | "left" | "right" | "none";
 const props = defineProps<{ chars: string[] }>();
 defineEmits<{
   (e: "input", value: string): void;
+  (e: "candidate", value: string): void;
 }>();
 
 const x0 = ref<number>(0);
@@ -71,6 +72,7 @@ const translate = computed<StyleValue>(() => {
           active = true;
           x0 = x1 = e.touches[0].pageX;
           y0 = y1 = e.touches[0].pageY;
+          $emit('candidate', display);
         }
       "
       @touchmove="
@@ -78,6 +80,7 @@ const translate = computed<StyleValue>(() => {
           e.preventDefault(); // スクロール防止
           x1 = e.touches[0].pageX;
           y1 = e.touches[0].pageY;
+          $emit('candidate', display);
         }
       "
       @touchend="
